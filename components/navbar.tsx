@@ -1,7 +1,7 @@
 import { navItemsData } from "@/data";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { Menu, PawPrint, ShoppingBasket } from "lucide-react";
+import { Menu, PawPrint, ShoppingCart } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -19,7 +19,7 @@ export function Navbar() {
           <PawPrint />
           PashuCare
         </h1>
-        <ul className="hidden lg:flex items-center gap-4">
+        <ul className="hidden lg:flex items-center gap-6">
           {navItemsData.map((d, idx) => (
             <li key={idx}>
               <Link href={d.href}>{d.label}</Link>
@@ -47,7 +47,9 @@ export function Navbar() {
               </ul>
               <SheetFooter>
                 <Button variant={"outline"}>
-                  <ShoppingBasket />
+                  <Link href={"/cart"}>
+                    <ShoppingCart />
+                  </Link>
                 </Button>
                 <Button variant={"link"}>Login</Button>
                 <Button>Register</Button>
@@ -57,7 +59,9 @@ export function Navbar() {
         </div>
         <div className="hidden lg:flex items-center gap-4">
           <Button variant={"ghost"}>
-            <ShoppingBasket />
+            <Link href={"/cart"}>
+              <ShoppingCart />
+            </Link>
           </Button>
           <Button variant={"link"}>Login</Button>
           <Button>Register</Button>
