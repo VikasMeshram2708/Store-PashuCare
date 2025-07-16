@@ -1,7 +1,9 @@
+"use client";
+
 import { navItemsData } from "@/data";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { Menu, PawPrint, ShoppingCart } from "lucide-react";
+import { LogOut, Menu, PawPrint, ShoppingCart } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -10,8 +12,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
+import {
+  LoginLink,
+  LogoutLink,
+  RegisterLink,
+  useKindeBrowserClient,
+} from "@kinde-oss/kinde-auth-nextjs";
 
 export function Navbar() {
+  const { user } = useKindeBrowserClient();
   return (
     <nav className="bg-background p-3">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between">
@@ -51,8 +60,24 @@ export function Navbar() {
                     <ShoppingCart />
                   </Link>
                 </Button>
-                <Button variant={"link"}>Login</Button>
-                <Button>Register</Button>
+
+                {user ? (
+                  <Button asChild variant={"destructive"}>
+                    <LogoutLink>
+                      <LogOut />
+                      Logout
+                    </LogoutLink>
+                  </Button>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <LoginLink>
+                      <Button variant={"link"}>Login</Button>
+                    </LoginLink>
+                    <RegisterLink>
+                      <Button>Register</Button>
+                    </RegisterLink>
+                  </div>
+                )}
               </SheetFooter>
             </SheetContent>
           </Sheet>
@@ -63,8 +88,23 @@ export function Navbar() {
               <ShoppingCart />
             </Link>
           </Button>
-          <Button variant={"link"}>Login</Button>
-          <Button>Register</Button>
+          {user ? (
+            <Button asChild variant={"destructive"}>
+              <LogoutLink>
+                <LogOut />
+                Logout
+              </LogoutLink>
+            </Button>
+          ) : (
+            <div className="flex items-center gap-2">
+              <LoginLink>
+                <Button variant={"link"}>Login</Button>
+              </LoginLink>
+              <RegisterLink>
+                <Button>Register</Button>
+              </RegisterLink>
+            </div>
+          )}
         </div>
       </div>
     </nav>
