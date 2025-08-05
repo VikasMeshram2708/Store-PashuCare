@@ -13,7 +13,7 @@ interface iNavItem {
 export const navItemsData: iNavItem[] = [
   {
     label: "Home",
-    href: "/home",
+    href: "/",
   },
   // {
   //   label: "All Products",
