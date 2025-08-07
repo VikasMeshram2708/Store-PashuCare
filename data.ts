@@ -3,7 +3,7 @@
 export const navData: NavLink[] = [
   {
     label: "Home",
-    href: "/home",
+    href: "/",
   },
   {
     label: "Products",
@@ -24,9 +24,8 @@ export const navData: NavLink[] = [
 ];
 
 // product samples
-export const productSamples: Product[] = [
+export const productSamples = [
   {
-    id: "prod_1",
     name: "Organic Chicken Dog Food",
     description:
       "Premium grain-free chicken recipe for adult dogs. Packed with organic ingredients.",
@@ -42,11 +41,9 @@ export const productSamples: Product[] = [
     stockQuantity: 150,
     isActive: true,
     tags: ["dog", "food", "organic", "grain-free"],
-    categoryId: "cat_food",
     ownerId: "store_paw",
   },
   {
-    id: "prod_2",
     name: "Catnip Mouse Toy",
     description:
       "Soft plush mouse toy filled with potent North American catnip.",
@@ -59,11 +56,9 @@ export const productSamples: Product[] = [
     stockQuantity: 300,
     isActive: true,
     tags: ["cat", "toy", "catnip"],
-    categoryId: "cat_toys",
     ownerId: "store_purr",
   },
   {
-    id: "prod_3",
     name: "Adjustable Dog Harness (Medium)",
     description: "Breathable and adjustable harness for daily dog walks.",
     sku: "DOGHARNESS-MED-001",
@@ -78,11 +73,9 @@ export const productSamples: Product[] = [
     stockQuantity: 80,
     isActive: true,
     tags: ["dog", "harness", "walking"],
-    categoryId: "cat_harnesses",
     ownerId: "store_paw",
   },
   {
-    id: "prod_4",
     name: "Aquarium Water Conditioner",
     description:
       "Dechlorinates tap water instantly; safe for fish and aquatic plants.",
@@ -95,11 +88,9 @@ export const productSamples: Product[] = [
     stockQuantity: 200,
     isActive: true,
     tags: ["fish", "aquarium", "water treatment"],
-    categoryId: "cat_aquarium",
     ownerId: "store_aqua",
   },
   {
-    id: "prod_5",
     name: "Rabbit Hay Feeder",
     description:
       "Wall-mounted hay feeder for small pets—keeps hay clean and accessible.",
@@ -112,11 +103,9 @@ export const productSamples: Product[] = [
     stockQuantity: 65,
     isActive: true,
     tags: ["rabbit", "hay", "feeder", "small pets"],
-    categoryId: "cat_smallpet",
     ownerId: "store_hop",
   },
   {
-    id: "prod_6",
     name: "Bird Cuttlebone Calcium Block",
     description:
       "Essential calcium supplement for parrots, parakeets, and other birds.",
@@ -129,11 +118,9 @@ export const productSamples: Product[] = [
     stockQuantity: 120,
     isActive: true,
     tags: ["bird", "calcium", "health"],
-    categoryId: "cat_bird",
     ownerId: "store_feather",
   },
   {
-    id: "prod_7",
     name: "Dog Flea and Tick Collar",
     description:
       "Up to 8 months protection against fleas and ticks. Waterproof.",
@@ -146,11 +133,9 @@ export const productSamples: Product[] = [
     stockQuantity: 70,
     isActive: true,
     tags: ["dog", "flea", "tick", "collar"],
-    categoryId: "cat_health",
     ownerId: "store_paw",
   },
   {
-    id: "prod_8",
     name: "Puppy Training Pads (50-Pack)",
     description: "Super-absorbent, leak-proof pads for house training puppies.",
     sku: "DOG-TRAINPAD-001",
@@ -162,11 +147,9 @@ export const productSamples: Product[] = [
     stockQuantity: 250,
     isActive: true,
     tags: ["dog", "puppy", "training", "pads"],
-    categoryId: "cat_training",
     ownerId: "store_paw",
   },
   {
-    id: "prod_9",
     name: "Interactive Cat Feather Wand",
     description:
       "Retractable wand with interchangeable feather tips for energetic play sessions.",
@@ -179,11 +162,9 @@ export const productSamples: Product[] = [
     stockQuantity: 130,
     isActive: true,
     tags: ["cat", "toy", "interactive"],
-    categoryId: "cat_toys",
     ownerId: "store_purr",
   },
   {
-    id: "prod_10",
     name: 'Hamster Exercise Ball (Transparent, 7")',
     description:
       "Let your hamster roam safely—durable plastic, easy-latch closure.",
@@ -196,7 +177,6 @@ export const productSamples: Product[] = [
     stockQuantity: 44,
     isActive: true,
     tags: ["hamster", "exercise", "ball", "small pets"],
-    categoryId: "cat_smallpet",
     ownerId: "store_wheel",
   },
 ];

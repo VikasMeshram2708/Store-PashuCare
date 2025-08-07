@@ -6,11 +6,15 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { productSamples } from "@/data";
+import { getProducts } from "@/lib/getproducts";
 import { Filter, IndianRupeeIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { Suspense } from "react";
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const { data } = await getProducts();
+
   return (
     <div className="bg-background px-4 py-6">
       <div className="max-w-screen-xl mx-auto">
@@ -22,34 +26,40 @@ export default function ProductsPage() {
           </Button>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-10">
-          {productSamples?.map((prd) => (
-            <Card
-              key={prd.id}
-              className="p-0 bg-transparent outline-none border-none"
-            >
-              <CardContent className="p-0">
-                <Image
-                  src="https://is.gd/H578mV"
-                  alt={prd.name}
-                  width={500}
-                  height={500}
-                  className="w-full h-full rounded-md object-cover object-center"
-                />
-              </CardContent>
-              <CardHeader className="p-0">
-                <CardDescription>{prd.name}</CardDescription>
-              </CardHeader>
-              <CardFooter className="p-0 -mt-2 flex items-center justify-between">
-                <Button>Buy Now</Button>
-                <Button variant={"link"}>
-                  <IndianRupeeIcon />
-                  {prd.price ?? 999.99}
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </ul>
+        <Suspense
+          fallback={<p className="text-xl text-muted-foreground">Loading...</p>}
+        >
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-10">
+            {data?.map((prd) => (
+              <Card
+                key={prd.id}
+                className="p-0 bg-transparent outline-none border-none"
+              >
+                <CardContent className="p-0">
+                  <Image
+                    src="https://is.gd/H578mV"
+                    alt={prd.name}
+                    width={500}
+                    height={500}
+                    className="w-full h-full rounded-md object-cover object-center hover:scale-105 duration-300 ease-in-out"
+                  />
+                </CardContent>
+                <CardHeader className="p-0">
+                  <CardDescription className="hover:underline hover:underline-offset-4">
+                    <Link href={`/pu/products/${prd.id}`}>{prd.name}</Link>
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter className="p-0 -mt-2 flex items-center justify-between">
+                  <Button>Buy Now</Button>
+                  <Button variant={"link"}>
+                    <IndianRupeeIcon />
+                    {prd.price ?? 999.99}
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </ul>
+        </Suspense>
       </div>
     </div>
   );
