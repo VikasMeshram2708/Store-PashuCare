@@ -18,6 +18,11 @@ export const navData: NavLink[] = [
     href: "/pu/contact",
   },
   {
+    label: "About",
+    href: "/pu/about",
+  },
+
+  {
     label: "FAQs",
     href: "/pu/faqs",
   },

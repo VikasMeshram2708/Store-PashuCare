@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
         hostname: "is.gd",
         protocol: "https",
       },
+      {
+        hostname: "images.unsplash.com",
+        protocol: "https",
+      },
+      {
+        hostname: "randomuser.me",
+        protocol: "https",
+      },
     ],
   },
 };
